@@ -1,11 +1,12 @@
+#echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 #echo
+#echo 'Scenario: Old chromebook/netbook with little internal storage but reasonably fast USB ports.'
+#echo 'Solution: Utilize a thumbdrive left permanently in the laptop as additional storage via LVM.'
 #echo
-#echo
-#echo 'install LVM subsystem and create an LVM with thumbdrives'
-#echo
-#sudo apt -q -y install lvm2
+#echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 #
-
+sudo apt -q -y install lvm2 
+#
 echo "The following volumes have been found on your system"
 while true; do
     sudo fdisk -l | grep /dev/sd
