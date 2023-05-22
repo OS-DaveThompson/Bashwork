@@ -24,6 +24,7 @@ echo
 #---
 
 
+
 #----------------------------------------------------------------
 #--- Update/Upgrade cycle?  Reboot?
 #---
@@ -46,6 +47,7 @@ read -p -r "Reboot?  (Yy/Nn) " yn
 #---
 
 
+
 #----------------------------------------------------------------
 #---    Start by removing any previous installed components
 #---
@@ -53,6 +55,7 @@ read -p -r "Reboot?  (Yy/Nn) " yn
 sudo apt-get -y remove docker docker-engine docker.io containerd runc
 sudo apt update
 sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release
+
 
 
 #----------------------------------------------------------------
