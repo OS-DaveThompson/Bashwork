@@ -15,8 +15,8 @@ echo
 #----------------------------------------------------------------
 #--- Update/Upgrade cycle?
 #---
-read -p "Run update/upgrade cycle?  (Yy/Nn) " yN
-    case $yn in
+read -p "Run update/upgrade cycle?  (y/N) " yN
+    case $nN in
         [Yy] ) echo;
             echo "Selected: Perform update";
             echo;
@@ -31,8 +31,8 @@ read -p "Run update/upgrade cycle?  (Yy/Nn) " yN
 #----------------------------------------------------------------
 #--- Reboot?
 #---
-read -p "Reboot?  (Yy/Nn) " yN
-    case $yn in
+read -p "Does the machine neet to reboot?  (y/N) " yN
+    case $yN in
         [Yy] ) echo;
             echo "Selected: Rebooting";
             echo;
@@ -88,7 +88,7 @@ echo "# 2) APT install docker and components"
 echo "#================================================================"
 echo
 apt update
-apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose docker-compose-plugin
+apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose docker-compose-plugin
 #================================================================
 echo
 echo
