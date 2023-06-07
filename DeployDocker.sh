@@ -1,22 +1,25 @@
 #!/bin/bash
 
 #----------------------------------------------------------------
-#---    Script explanation
+#--- Script explanation
 #---
+echo "|---------------------------------------------------------------------------------"
 echo "Olympic Softworks script to prepair Ubuntu 22.04 server for Docker deployment use."
-echo
+echo 
 echo "You will be given an opportunity to update/upgrade and reboot if needed before"
 echo "installation of the docker foundation is deployed."
 echo
 echo "Begin Script"
-echo
-echo
-echo
+echo "---"
+echo "---"
+echo "---"
+#================================================================
+
 #----------------------------------------------------------------
 #--- Update/Upgrade cycle?
 #---
 read -p "Run update/upgrade cycle?  (y/N) " yN
-    case $nN in
+    case $yN in
         [Yy] ) echo;
             echo "Selected: Perform update";
             echo;
@@ -46,7 +49,6 @@ read -p "Does the machine neet to reboot?  (y/N) " yN
 #----------------------------------------------------------------
 #--- Start by removing any previous installed docker components
 #---
-#---
 echo
 echo "#================================================================"
 echo "# 1) Remove prior docker and related components"
@@ -61,7 +63,6 @@ sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release
 
 #----------------------------------------------------------------
 #--- Set up secure docker repositories
-#---
 #---
 echo
 echo "#================================================================"
@@ -80,7 +81,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.
 #----------------------------------------------------------------
 #--- Install docker and related components
 #---
-#---
 echo
 echo "#================================================================"
 echo "# 1) Perform update to refresh app-cache"
@@ -90,8 +90,29 @@ echo
 apt update
 apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose docker-compose-plugin
 #================================================================
+
+#----------------------------------------------------------------
+#--- Provide version of docker installed 
+#---
 echo
-echo
-echo "docker --version"
-echo "#---"
+echo "#================================================================"
+echo "# The following is the version of docker installed is"
+echo "#"
+echo -n "# "
 docker --version
+echo "#================================================================"
+echo
+#================================================================
+
+#----------------------------------------------------------------
+#--- For security and workflow, add non-admin access to docker
+#---
+echo
+echo
+echo
+echo "Please give a username to add to the docker group, so the"
+echo "user can give docker commands without needing admin privilege."
+echo
+read -p "Username to become docker admin " dkr
+usermod -aG docker $dkr
+
