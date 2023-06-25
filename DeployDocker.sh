@@ -115,6 +115,16 @@ echo "user can give docker commands without needing admin privilege."
 echo
 read -p "Username to become docker admin " dkr
 usermod -aG docker $dkr
-export DOCKER_CLIENT_TIMEOUT=120
-export COMPOSE_HTTP_TIMEOUT=120
 systemctl restart docker
+DOCKER_CLIENT_TIMEOUT=120
+echo
+echo "DOCKER_CLIENT_TIMEOUT=$DOCKER_CLIENT_TIMEOUT"
+export DOCKER_CLIENT_TIMEOUT 
+COMPOSE_HTTP_TIMEOUT=120
+echo 
+echo "COMPOSE_HTTP_TIMEOUT=$COMPOSE_HTTP_TIMEOUT"
+export COMPOSE_HTTP_TIMEOUT
+
+#export DOCKER_CLIENT_TIMEOUT=120
+#export COMPOSE_HTTP_TIMEOUT=120
+#systemctl restart docker
